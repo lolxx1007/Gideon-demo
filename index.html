@@ -8,199 +8,359 @@
 </head>
 <body>
 
-<div class="container">
+<div class="background">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+</div>
 
-    <div class="card">
+<div class="app">
 
-        <div class="logo">
-            <div class="logo-mark">G</div>
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">G</div>
+
             <div>
-                <h1>GIDEON CONTROL</h1>
-                <p>MISSION CENTER</p>
+                <div class="brand-title">GIDEON CONTROL</div>
+                <div class="brand-subtitle">MISSION CENTER</div>
             </div>
         </div>
 
-        <div class="demo-alert">
-            <span>●</span>
-            ДЕМО-РЕЖИМ — НАВЧАЛЬНИЙ ІНТЕРФЕЙС
+        <div class="status">
+            <span class="status-dot"></span>
+            СИСТЕМА ОНЛАЙН
         </div>
 
-        <div class="progress">
-            <div class="progress-item active">
-                <span>1</span>
-                <p>ДАНІ</p>
+    </header>
+
+    <main class="main">
+
+        <div class="intro">
+            <div>
+                <span class="eyebrow">CONTROL PANEL</span>
+                <h1>Створення звіту</h1>
+                <p>Заповніть форму послідовно, щоб перейти до наступного етапу.</p>
             </div>
 
-            <div class="line"></div>
-
-            <div class="progress-item">
-                <span>2</span>
-                <p>ПЕРЕВІРКА</p>
-            </div>
-
-            <div class="line"></div>
-
-            <div class="progress-item">
-                <span>3</span>
-                <p>ПІДСУМОК</p>
+            <div class="draft">
+                <span class="draft-icon">✓</span>
+                Чернетка зберігається автоматично
             </div>
         </div>
 
-        <div id="geo-alert" class="geo-alert hidden">
-            <strong>Увага</strong>
-            <span>Доступ до геолокації заборонено браузером.</span>
-        </div>
+        <div class="layout">
 
-        <form id="gideon-form">
+            <aside class="sidebar">
 
-            <section class="step active" data-step="1">
+                <div class="steps">
 
-                <div class="step-title">
-                    <span>КРОК 01</span>
-                    <h2>Основні дані</h2>
-                    <p>Заповніть інформацію для продовження</p>
+                    <div class="side-step active" data-side-step="1">
+                        <div class="side-number">01</div>
+                        <div>
+                            <strong>Основні дані</strong>
+                            <span>Тип та підрозділ</span>
+                        </div>
+                    </div>
+
+                    <div class="side-line"></div>
+
+                    <div class="side-step" data-side-step="2">
+                        <div class="side-number">02</div>
+                        <div>
+                            <strong>Перевірка</strong>
+                            <span>Результати перевірки</span>
+                        </div>
+                    </div>
+
+                    <div class="side-line"></div>
+
+                    <div class="side-step" data-side-step="3">
+                        <div class="side-number">03</div>
+                        <div>
+                            <strong>Підсумок</strong>
+                            <span>Перегляд даних</span>
+                        </div>
+                    </div>
+
                 </div>
 
-                <label for="report-type">ТИП ЗВІТУ</label>
+                <div class="sidebar-info">
+                    <span>DEMO MODE</span>
+                    <p>Це навчальна версія інтерфейсу. Дані не передаються на сервер.</p>
+                </div>
 
-                <select id="report-type">
-                    <option value="units">Підрозділи</option>
-                    <option value="messages">Ввідні повідомлення</option>
-                    <option value="special">Спец. об'єкти</option>
-                </select>
+            </aside>
 
-                <label for="officer-name">ІДЕНТИФІКАТОР</label>
+            <section class="panel">
 
-                <input
-                    type="text"
-                    id="officer-name"
-                    placeholder="Введіть тестове ім'я"
-                    autocomplete="off"
-                >
+                <div id="geo-alert" class="geo-alert hidden">
 
-                <label for="unit-select">ПІДРОЗДІЛ</label>
+                    <div class="alert-icon">!</div>
 
-                <select id="unit-select">
-                    <option value="">— Оберіть підрозділ —</option>
-                    <option value="bila-tserkva">Білоцерківський район</option>
-                    <option value="boryspil">Бориспільський район</option>
-                    <option value="brovary">Броварський район</option>
-                    <option value="bucha">Бучанський район</option>
-                    <option value="vyshhorod">Вишгородський район</option>
-                    <option value="obukhiv">Обухівський район</option>
-                    <option value="fastiv">Фастівський район</option>
-                </select>
+                    <div>
+                        <strong>Геолокація недоступна</strong>
+                        <p>Браузер не надав доступ до геолокації.</p>
+                    </div>
 
-                <button type="button" id="next-btn" disabled>
-                    ПЕРЕЙТИ ДО НАСТУПНОГО ЕТАПУ
-                    <span>→</span>
-                </button>
+                    <button id="close-alert">×</button>
 
-                <button type="button" id="reset-btn" class="reset-btn">
-                    Очистити чернетку та почати спочатку
-                </button>
+                </div>
+
+                <form id="gideon-form">
+
+                    <section class="step active" data-step="1">
+
+                        <div class="section-header">
+                            <span>ЕТАП 01</span>
+                            <h2>Основна інформація</h2>
+                            <p>Вкажіть тип звіту та основні дані.</p>
+                        </div>
+
+                        <div class="field">
+
+                            <label for="report-type">
+                                Тип звіту
+                                <small>ОБОВ'ЯЗКОВО</small>
+                            </label>
+
+                            <div class="input-wrapper">
+                                <span class="input-icon">№</span>
+
+                                <input
+                                    type="text"
+                                    id="report-type"
+                                    placeholder="Введіть тип звіту"
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="officer-name">
+                                Ідентифікатор
+                                <small>ОБОВ'ЯЗКОВО</small>
+                            </label>
+
+                            <div class="input-wrapper">
+                                <span class="input-icon">ID</span>
+
+                                <input
+                                    type="text"
+                                    id="officer-name"
+                                    placeholder="Введіть ідентифікатор"
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="unit-select">
+                                Підрозділ
+                                <small>ОБОВ'ЯЗКОВО</small>
+                            </label>
+
+                            <div class="input-wrapper">
+                                <span class="input-icon">+</span>
+
+                                <input
+                                    type="text"
+                                    id="unit-select"
+                                    placeholder="Введіть назву підрозділу"
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                        </div>
+
+                        <div class="action">
+
+                            <button
+                                type="button"
+                                id="next-btn"
+                                class="primary"
+                                disabled
+                            >
+                                <span>Перейти до наступного етапу</span>
+                                <b>→</b>
+                            </button>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="reset-btn"
+                            class="clear-btn"
+                        >
+                            Очистити чернетку
+                        </button>
+
+                    </section>
+
+                    <section class="step" data-step="2">
+
+                        <div class="section-header">
+                            <span>ЕТАП 02</span>
+                            <h2>Результати перевірки</h2>
+                            <p>Заповніть інформацію про результат перевірки.</p>
+                        </div>
+
+                        <div class="field">
+
+                            <label for="status">
+                                Статус
+                                <small>ОБОВ'ЯЗКОВО</small>
+                            </label>
+
+                            <div class="input-wrapper">
+                                <span class="input-icon">✓</span>
+
+                                <input
+                                    type="text"
+                                    id="status"
+                                    placeholder="Введіть статус"
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="result">
+                                Результат
+                                <small>ОБОВ'ЯЗКОВО</small>
+                            </label>
+
+                            <textarea
+                                id="result"
+                                placeholder="Опишіть результат перевірки..."
+                            ></textarea>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="notes">
+                                Додаткові відомості
+                                <small>НЕОБОВ'ЯЗКОВО</small>
+                            </label>
+
+                            <textarea
+                                id="notes"
+                                placeholder="Додаткова інформація..."
+                            ></textarea>
+
+                        </div>
+
+                        <div class="navigation">
+
+                            <button
+                                type="button"
+                                id="back-btn"
+                                class="secondary"
+                            >
+                                ← Назад
+                            </button>
+
+                            <button
+                                type="button"
+                                id="summary-btn"
+                                class="primary"
+                                disabled
+                            >
+                                <span>Переглянути підсумок</span>
+                                <b>→</b>
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                    <section class="step" data-step="3">
+
+                        <div class="section-header">
+                            <span>ЕТАП 03</span>
+                            <h2>Підсумок</h2>
+                            <p>Перевірте введену інформацію перед завершенням.</p>
+                        </div>
+
+                        <div class="summary-card">
+
+                            <div class="summary-head">
+
+                                <div>
+                                    <span>ЗВІТ</span>
+                                    <h3>Перевірка даних</h3>
+                                </div>
+
+                                <div class="check">✓</div>
+
+                            </div>
+
+                            <div class="summary-item">
+                                <span>Тип звіту</span>
+                                <strong id="summary-report">—</strong>
+                            </div>
+
+                            <div class="summary-item">
+                                <span>Ідентифікатор</span>
+                                <strong id="summary-officer">—</strong>
+                            </div>
+
+                            <div class="summary-item">
+                                <span>Підрозділ</span>
+                                <strong id="summary-unit">—</strong>
+                            </div>
+
+                            <div class="summary-item">
+                                <span>Статус</span>
+                                <strong id="summary-status">—</strong>
+                            </div>
+
+                            <div class="summary-description">
+
+                                <span>Результат</span>
+
+                                <p id="summary-result">—</p>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="finish-btn"
+                            class="primary finish"
+                        >
+                            Завершити
+                            <b>✓</b>
+                        </button>
+
+                        <button
+                            type="button"
+                            id="edit-btn"
+                            class="clear-btn"
+                        >
+                            ← Повернутися до редагування
+                        </button>
+
+                    </section>
+
+                </form>
 
             </section>
 
-
-            <section class="step" data-step="2">
-
-                <div class="step-title">
-                    <span>КРОК 02</span>
-                    <h2>Перевірка</h2>
-                    <p>Заповніть результати демонстраційної перевірки</p>
-                </div>
-
-                <label for="status">СТАТУС</label>
-
-                <select id="status">
-                    <option value="">— Оберіть статус —</option>
-                    <option value="completed">Перевірку завершено</option>
-                    <option value="partial">Виконано частково</option>
-                    <option value="problem">Виявлено зауваження</option>
-                </select>
-
-                <label for="result">РЕЗУЛЬТАТ</label>
-
-                <textarea
-                    id="result"
-                    placeholder="Введіть результат демонстраційної перевірки..."
-                ></textarea>
-
-                <label for="notes">ДОДАТКОВІ ВІДОМОСТІ</label>
-
-                <textarea
-                    id="notes"
-                    placeholder="Додаткова інформація..."
-                ></textarea>
-
-                <div class="buttons">
-                    <button type="button" id="back-btn" class="secondary-btn">
-                        ← НАЗАД
-                    </button>
-
-                    <button type="button" id="summary-btn" class="primary-btn" disabled>
-                        ДАЛІ →
-                    </button>
-                </div>
-
-            </section>
-
-
-            <section class="step" data-step="3">
-
-                <div class="step-title">
-                    <span>КРОК 03</span>
-                    <h2>Підсумок</h2>
-                    <p>Перевірте введену інформацію</p>
-                </div>
-
-                <div class="summary">
-
-                    <div class="summary-row">
-                        <span>Тип звіту</span>
-                        <strong id="summary-report">—</strong>
-                    </div>
-
-                    <div class="summary-row">
-                        <span>Ідентифікатор</span>
-                        <strong id="summary-officer">—</strong>
-                    </div>
-
-                    <div class="summary-row">
-                        <span>Підрозділ</span>
-                        <strong id="summary-unit">—</strong>
-                    </div>
-
-                    <div class="summary-row">
-                        <span>Статус</span>
-                        <strong id="summary-status">—</strong>
-                    </div>
-
-                    <div class="summary-text">
-                        <span>Результат</span>
-                        <p id="summary-result">—</p>
-                    </div>
-
-                </div>
-
-                <button type="button" id="finish-btn" class="finish-btn">
-                    ЗАВЕРШИТИ
-                </button>
-
-                <button type="button" id="edit-btn" class="reset-btn">
-                    ← Повернутися до редагування
-                </button>
-
-            </section>
-
-        </form>
-
-        <div class="footer">
-            GIDEON CONTROL • DEMO VERSION
         </div>
 
-    </div>
+    </main>
+
+    <footer>
+        GIDEON CONTROL <span>•</span> MISSION CENTER <span>•</span> DEMO
+    </footer>
 
 </div>
 
