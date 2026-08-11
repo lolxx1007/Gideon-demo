@@ -1,0 +1,384 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f7;
+    color: #172033;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.card {
+    width: 100%;
+    max-width: 560px;
+    background: #ffffff;
+    border: 1px solid #e3e8ef;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(20, 35, 60, 0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.logo-mark {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #172033;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 19px;
+    letter-spacing: 2px;
+}
+
+.logo p {
+    margin: 4px 0 0;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8a94a6;
+    font-weight: 700;
+}
+
+.demo-alert {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #f4f7fa;
+    border: 1px solid #e2e7ee;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .7px;
+    margin-bottom: 30px;
+}
+
+.demo-alert span {
+    color: #22a06b;
+    margin-right: 7px;
+}
+
+.progress {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #9aa4b2;
+}
+
+.progress-item span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #edf1f5;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.progress-item p {
+    margin: 0;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.progress-item.active {
+    color: #2563eb;
+}
+
+.progress-item.active span {
+    background: #2563eb;
+    color: white;
+}
+
+.progress-item.completed span {
+    background: #172033;
+    color: white;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background: #e1e6ed;
+    margin: 0 12px;
+}
+
+.geo-alert {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 13px;
+    border-radius: 10px;
+    background: #fff4f2;
+    border: 1px solid #ffd5cf;
+    color: #c0392b;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+    animation: showStep .25s ease;
+}
+
+@keyframes showStep {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-title {
+    margin-bottom: 25px;
+}
+
+.step-title span {
+    color: #2563eb;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.step-title h2 {
+    margin: 6px 0;
+    font-size: 25px;
+}
+
+.step-title p {
+    margin: 0;
+    color: #8b95a5;
+    font-size: 13px;
+}
+
+label {
+    display: block;
+    margin: 19px 0 7px;
+    color: #778195;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #dce2e9;
+    border-radius: 10px;
+    background: #fbfcfd;
+    color: #172033;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: .2s;
+}
+
+input,
+select {
+    height: 47px;
+    padding: 0 13px;
+}
+
+textarea {
+    min-height: 100px;
+    padding: 13px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .08);
+}
+
+button {
+    font-family: inherit;
+}
+
+#next-btn,
+.primary-btn,
+.finish-btn {
+    width: 100%;
+    height: 50px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#next-btn span {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+#next-btn:disabled,
+.primary-btn:disabled {
+    background: #cbd2dc;
+    cursor: not-allowed;
+}
+
+#next-btn:not(:disabled):hover,
+.primary-btn:not(:disabled):hover,
+.finish-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.reset-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #8c96a5;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    color: #d04444;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.buttons button {
+    margin-top: 0;
+}
+
+.secondary-btn {
+    width: 35%;
+    border: 1px solid #dce2e9;
+    border-radius: 10px;
+    background: white;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.primary-btn {
+    width: 65%;
+}
+
+.summary {
+    border: 1px solid #e3e8ef;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #e8edf2;
+}
+
+.summary-row span,
+.summary-text span {
+    color: #8a94a6;
+    font-size: 11px;
+}
+
+.summary-row strong {
+    text-align: right;
+    font-size: 12px;
+}
+
+.summary-text {
+    padding: 15px;
+}
+
+.summary-text p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #a2aab6;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .card {
+        margin-top: 10px;
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .logo h1 {
+        font-size: 16px;
+    }
+
+    .progress-item p {
+        display: none;
+    }
+
+    .progress-item span {
+        width: 27px;
+        height: 27px;
+    }
+}
